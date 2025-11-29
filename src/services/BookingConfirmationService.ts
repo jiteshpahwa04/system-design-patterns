@@ -1,3 +1,6 @@
+// This class never know if it's email, sms or push notifier
+// That's where decoupling happens
+
 import type { NotifierFactory } from "../factory/NotifierFactory.js";
 
 export class BookingConfirmationService {
