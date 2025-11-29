@@ -8,4 +8,5 @@ async function demo() {
     await svc.sendBookingConfirmation('email', 'user@example.com', 'Your booking is confirmed!');
     await svc.sendBookingConfirmation('sms', '+1234567890', 'Your booking is confirmed!');
     await svc.sendBookingConfirmation('push', 'userDeviceToken', 'Your booking is confirmed!');
+    await svc.sendBookingConfirmation('whatsapp', '+1234567890', 'Your booking is confirmed!');
 }

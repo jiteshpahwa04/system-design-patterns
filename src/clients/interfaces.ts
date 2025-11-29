@@ -9,3 +9,7 @@ export interface SMSClient {
 export interface PushNotificationClient {
     sendPush(to: string, title: string, message: string): Promise<void>;
 }
+
+export interface WhatsAppClient {
+    sendWhatsAppMessage(to: string, message: string): Promise<void>;
+}

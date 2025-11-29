@@ -1,10 +1,11 @@
 // creates clients, factory, and registers notifiers
 
-import { ConsoleEmailClient, ConsolePushNotificationClient, ConsoleSMSClient } from "../clients/consoleClient.js";
+import { ConsoleEmailClient, ConsolePushNotificationClient, ConsoleSMSClient, ConsoleWhatsAppClient } from "../clients/consoleClient.js";
 import { NotifierFactory } from "../factory/NotifierFactory.js";
 import { EmailNotifier } from "../notifiers/EmailNotifier.js";
 import { PushNotifier } from "../notifiers/PushNotifier.js";
 import { SmsNotifier } from "../notifiers/SmsNotifier.js";
+import { WhatsappNotifier } from "../notifiers/WhatsappNotifier.js";
 
 export function buildNotifierFactory() {
     const factory = new NotifierFactory();
@@ -12,10 +13,12 @@ export function buildNotifierFactory() {
     const emailClient = new ConsoleEmailClient();
     const smsClient = new ConsoleSMSClient();
     const pushClient = new ConsolePushNotificationClient();
+    const whatsappClient = new ConsoleWhatsAppClient();
 
     factory.register('email', ()=> new EmailNotifier(emailClient));
     factory.register('sms', ()=> new SmsNotifier(smsClient));
     factory.register('push', ()=> new PushNotifier(pushClient));
+    factory.register('whatsapp', ()=> new WhatsappNotifier(whatsappClient));
 
     return factory;
 }
